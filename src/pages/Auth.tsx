@@ -8,12 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
 import { useToast } from "@/hooks/use-toast";
+import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 
 // Validation schemas
 const emailSchema = z.string().email("Please enter a valid email address");
-const passwordSchema = z
-  .string()
-  .min(8, "Password must be at least 8 characters");
+const passwordSchema = z.string().min(8, "Password must be at least 8 characters");
 
 type AuthMode = "login" | "signup";
 
@@ -21,6 +20,7 @@ export default function Auth() {
   const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
@@ -98,8 +98,8 @@ export default function Auth() {
           }
         } else {
           toast({
-            title: "Account created",
-            description: "Welcome to CodeForensics!",
+            title: "Welcome to CodeForensics!",
+            description: "Your account has been created successfully.",
           });
         }
       }
@@ -116,7 +116,7 @@ export default function Auth() {
   return (
     <AuthLayout>
       {/* Card */}
-      <div className="card-soft p-8">
+      <div className="card-elevated p-8">
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-semibold text-foreground">
@@ -130,20 +130,23 @@ export default function Auth() {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email */}
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={isSubmitting}
-              className={errors.email ? "border-destructive" : ""}
-              autoComplete="email"
-            />
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isSubmitting}
+                className={`pl-10 ${errors.email ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                autoComplete="email"
+              />
+            </div>
             {errors.email && (
               <p className="text-sm text-destructive">{errors.email}</p>
             )}
@@ -152,16 +155,31 @@ export default function Auth() {
           {/* Password */}
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              disabled={isSubmitting}
-              className={errors.password ? "border-destructive" : ""}
-              autoComplete={mode === "login" ? "current-password" : "new-password"}
-            />
+            <div className="relative">
+              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={isSubmitting}
+                className={`pl-10 pr-10 ${errors.password ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                autoComplete={mode === "login" ? "current-password" : "new-password"}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                tabIndex={-1}
+              >
+                {showPassword ? (
+                  <EyeOff className="h-4 w-4" />
+                ) : (
+                  <Eye className="h-4 w-4" />
+                )}
+              </button>
+            </div>
             {errors.password && (
               <p className="text-sm text-destructive">{errors.password}</p>
             )}
@@ -170,7 +188,7 @@ export default function Auth() {
           {/* Submit */}
           <Button
             type="submit"
-            className="w-full"
+            className="w-full h-11"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
@@ -190,7 +208,7 @@ export default function Auth() {
             <button
               type="button"
               onClick={toggleMode}
-              className="font-medium text-foreground hover:underline underline-offset-4"
+              className="font-medium text-primary hover:underline underline-offset-4"
               disabled={isSubmitting}
             >
               {mode === "login" ? "Sign up" : "Sign in"}
@@ -198,6 +216,14 @@ export default function Auth() {
           </p>
         </div>
       </div>
+
+      {/* Terms */}
+      <p className="mt-6 text-center text-xs text-muted-foreground px-4">
+        By continuing, you agree to our{" "}
+        <a href="#" className="underline underline-offset-4 hover:text-foreground">Terms of Service</a>
+        {" "}and{" "}
+        <a href="#" className="underline underline-offset-4 hover:text-foreground">Privacy Policy</a>
+      </p>
     </AuthLayout>
   );
 }
