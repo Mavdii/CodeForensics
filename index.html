@@ -13,21 +13,55 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
     
     <!-- Open Graph -->
     <meta property="og:title" content="CodeForensics — AI-Powered Code Analysis" />
     <meta property="og:description" content="Understand your code like never before. AI-powered analysis that finds bugs, security issues, and performance problems." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codeforensics.app" />
+    <meta property="og:site_name" content="CodeForensics" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CodeForensics — AI-Powered Code Analysis" />
     <meta name="twitter:description" content="AI-powered code analysis for bugs, security, and performance." />
+    <meta name="twitter:site" content="@codeforensics" />
     
     <!-- Theme color -->
-    <meta name="theme-color" content="#fcfcfc" />
+    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#312e81" media="(prefers-color-scheme: dark)" />
+    
+    <!-- SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CodeForensics" />
+    <meta name="keywords" content="code analysis, AI, bugs, security, performance, code review, static analysis" />
+    <link rel="canonical" href="https://codeforensics.app" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "CodeForensics",
+      "description": "AI-powered code analysis platform that finds bugs, security issues, and performance problems",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
   </head>
   <body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>CodeForensics requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
