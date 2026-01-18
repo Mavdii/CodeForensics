@@ -2,95 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* 
+ * CodeForensics Design System
+ * Built by Umar — calm, professional, premium
+ * 
+ * Color Philosophy:
+ * - Soft neutrals for backgrounds
+ * - Muted accents for emphasis
+ * - No harsh colors
+ * - Premium feel like Linear/Vercel
+ */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - soft, calm neutrals */
+    --background: 0 0% 99%;
+    --foreground: 220 20% 14%;
 
+    /* Cards - slight elevation from background */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 14%;
 
+    /* Popovers */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - calm blue-gray, professional */
+    --primary: 220 16% 22%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - soft gray for subtle actions */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 16% 22%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - for disabled states and subtle text */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - soft highlight */
+    --accent: 220 14% 94%;
+    --accent-foreground: 220 16% 22%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive - calm red, not aggressive */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Success - calm green */
+    --success: 142 50% 45%;
+    --success-foreground: 0 0% 98%;
 
+    /* Warning - muted amber */
+    --warning: 38 90% 50%;
+    --warning-foreground: 38 90% 10%;
+
+    /* Info - soft blue */
+    --info: 210 80% 55%;
+    --info-foreground: 0 0% 98%;
+
+    /* Borders - very soft */
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 220 16% 22%;
+
+    /* Border radius - rounded but not bubbly */
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    /* Sidebar - subtle differentiation */
+    --sidebar-background: 220 14% 98%;
+    --sidebar-foreground: 220 10% 36%;
+    --sidebar-primary: 220 16% 22%;
     --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 14% 94%;
+    --sidebar-accent-foreground: 220 16% 22%;
+    --sidebar-border: 220 14% 92%;
+    --sidebar-ring: 220 16% 22%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Shadows - soft, layered */
+    --shadow-xs: 0 1px 2px 0 hsl(220 14% 10% / 0.03);
+    --shadow-sm: 0 1px 3px 0 hsl(220 14% 10% / 0.04), 0 1px 2px -1px hsl(220 14% 10% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(220 14% 10% / 0.05), 0 2px 4px -2px hsl(220 14% 10% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(220 14% 10% / 0.06), 0 4px 6px -4px hsl(220 14% 10% / 0.06);
+    --shadow-xl: 0 20px 25px -5px hsl(220 14% 10% / 0.08), 0 8px 10px -6px hsl(220 14% 10% / 0.08);
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Focus glow - subtle, professional */
+    --focus-ring: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(220 16% 22% / 0.15);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode - deep, calm, not harsh */
+    --background: 220 16% 8%;
+    --foreground: 220 10% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 16% 10%;
+    --card-foreground: 220 10% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 16% 10%;
+    --popover-foreground: 220 10% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 220 10% 92%;
+    --primary-foreground: 220 16% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 220 10% 88%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 14% 16%;
+    --muted-foreground: 220 10% 56%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 14% 14%;
+    --accent-foreground: 220 10% 88%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --success: 142 45% 40%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 38 85% 45%;
+    --warning-foreground: 38 90% 10%;
+
+    --info: 210 70% 50%;
+    --info-foreground: 0 0% 98%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 220 10% 70%;
+
+    --sidebar-background: 220 16% 9%;
+    --sidebar-foreground: 220 10% 70%;
+    --sidebar-primary: 220 10% 92%;
+    --sidebar-primary-foreground: 220 16% 10%;
+    --sidebar-accent: 220 14% 14%;
+    --sidebar-accent-foreground: 220 10% 88%;
+    --sidebar-border: 220 14% 16%;
+    --sidebar-ring: 220 10% 70%;
+
+    --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.25), 0 1px 2px -1px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -2px hsl(0 0% 0% / 0.25);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.35), 0 4px 6px -4px hsl(0 0% 0% / 0.3);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.4), 0 8px 10px -6px hsl(0 0% 0% / 0.35);
+
+    --focus-ring: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(220 10% 70% / 0.2);
   }
 }
 
@@ -100,6 +152,72 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth focus transitions */
+  *:focus-visible {
+    @apply outline-none transition-shadow duration-150;
+    box-shadow: var(--focus-ring);
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-primary/10 text-foreground;
+  }
+}
+
+@layer components {
+  /* Soft card with premium shadow */
+  .card-soft {
+    @apply bg-card rounded-lg border border-border;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card-soft:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Skeleton loader - calm pulse */
+  .skeleton {
+    @apply bg-muted animate-pulse rounded;
+  }
+
+  /* Calm button focus */
+  .btn-focus {
+    @apply focus-visible:outline-none;
+  }
+
+  .btn-focus:focus-visible {
+    box-shadow: var(--focus-ring);
+  }
+}
+
+@layer utilities {
+  /* Shadow utilities using CSS variables */
+  .shadow-soft-xs {
+    box-shadow: var(--shadow-xs);
+  }
+
+  .shadow-soft-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-soft-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-soft-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-soft-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
   }
 }
