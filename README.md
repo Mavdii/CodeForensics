@@ -87,7 +87,7 @@ CodeForensics unifies intelligent code inspection into a single platform capable
 ## 📦 Installation (Example)
 
 ```bash
-git clone https://github.com/your-username/codeforensics
+git clone https://github.com/Mavdii/codeforensics
 cd codeforensics
 npm install
 npm run dev
